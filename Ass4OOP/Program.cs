@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 
 namespace Ass4OOP
 {
@@ -144,60 +145,127 @@ namespace Ass4OOP
         internal class Duration
         {
             #region 1-Define Class Duration To include Three Attributes Hours, Minutes and Seconds. 
-            public int Hours {  get; set; }
-            public int Minutes { get; set; }
-            public int Seconds { get; set; }
+            //public int Hours { get; set; }
+            //public int Minutes { get; set; }
+            //public int Seconds { get; set; }
 
             #endregion
 
             #region 2-Override All System. Object Members [To String(), Equals(),GetHashCode() ] 
-            public override string ToString()
-            {
-                return $"{Hours:D2}:{Minutes:D2}:{Seconds:D2}";
-            }
+            //public override string ToString()
+            //{
+            //    return $"{Hours:D2}:{Minutes:D2}:{Seconds:D2}";
+            //}
 
-            public override bool Equals(object? obj)
-            {
-                if (obj is Duration obj2)
-                {
-                    return this.Hours == obj2.Hours &&
-                           this.Minutes == obj2.Minutes &&
-                           this.Seconds == obj2.Seconds;
-                }
-                return false;
-            }
+            //public override bool Equals(object? obj)
+            //{
+            //    if (obj is Duration obj2)
+            //    {
+            //        return this.Hours == obj2.Hours &&
+            //               this.Minutes == obj2.Minutes &&
+            //               this.Seconds == obj2.Seconds;
+            //    }
+            //    return false;
+            //}
 
-            public override int GetHashCode()
-            {
-                string s = string.Concat(Hours, Minutes, Seconds);
-                int ans = Convert.ToInt32(s);
-                return ans;
-            }
+            //public override int GetHashCode()
+            //{
+            //    string s = string.Concat(Hours, Minutes, Seconds);
+            //    int ans = Convert.ToInt32(s);
+            //    return ans;
+            //}
             #endregion
 
             #region 3-Define All Required Constructors to Produce this output: 
-            public Duration(int hours, int minutes, int seconds)
-            {
-                Hours = hours;
-                Minutes = minutes;
-                Seconds = seconds;
-            }
+            //public Duration(int hours, int minutes, int seconds)
+            //{
+            //    if (Hours < 0 || Minutes < 0 || Seconds < 0)
+            //        throw new Exception("Invalid Input");
 
-            public Duration(int seconds)
-            {
-                this.Hours = seconds / 3600;
-                seconds %= 3600;
+            //    Hours = hours;
+            //    Minutes = minutes;
+            //    Seconds = seconds;
+            //}
 
-                this.Minutes = seconds / 60;
-                seconds %= 60;
+            //public Duration(int seconds)
+            //{
+            //    this.Hours = seconds / 3600;
+            //    seconds %= 3600;
 
-                this.Seconds = seconds;
-            }
+            //    this.Minutes = seconds / 60;
+            //    seconds %= 60;
+
+            //    this.Seconds = seconds;
+            //}
 
             #endregion
 
             #region 4-Implement All required Operators overloading to enable this Code: 
+            //private static int toSeconds (Duration T)
+            //{
+            //   return T.Hours * 3600 + T.Minutes * 60 + T.Seconds;
+            //}
 
+            //public static Duration operator +(Duration a, Duration b)
+            //{
+            //    return new Duration(toSeconds(a) + toSeconds(b));
+            //}
+
+            //public static Duration operator -(Duration a, Duration b)
+            //{
+            //    return new Duration(toSeconds(a) - toSeconds(b));
+            //}
+
+            //public static Duration operator +(Duration a, int sec)
+            //{
+            //    return new Duration(toSeconds(a) + sec);
+            //}
+
+            //public static Duration operator +(int sec, Duration a)
+            //{
+            //    return new Duration(toSeconds(a) + sec);
+            //}
+
+            //public static Duration operator ++(Duration a)
+            //{
+            //    return new Duration(toSeconds(a) + 60);
+            //}
+
+            //public static Duration operator --(Duration a)
+            //{
+            //    return new Duration(toSeconds(a) - 60);
+            //}
+
+            //public static bool operator > (Duration a, Duration b)
+            //{
+            //    return toSeconds(a) > toSeconds(b);
+            //}
+
+            //public static bool operator <(Duration a, Duration b)
+            //{
+            //    return toSeconds(a) < toSeconds(b);
+            //}
+
+            //public static bool operator <= (Duration a, Duration b)
+            //{
+            //    return toSeconds(a) <= toSeconds(b);
+            //}
+
+            //public static bool operator >= (Duration a, Duration b)
+            //{
+            //    return toSeconds(a) >= toSeconds(b);
+            //}
+
+            //public static implicit operator bool (Duration a)
+            //{
+            //    return toSeconds(a) > 0;
+            //}
+
+            //public static explicit operator DateTime(Duration a)
+            //{
+            //    DateTime dateTime = DateTime.Now;
+            //    return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day , a.Hours, a.Minutes, a.Seconds);
+            //}
             #endregion
         }
 
@@ -286,6 +354,48 @@ namespace Ass4OOP
 
             /*---------------------------------------------------------------------------------*/
 
+            //Duration d1 = new Duration(6, 15, 45);
+            //Duration d2 = new Duration(2, 30, 55);
+            //Duration d3 = default;
+
+            //d3 = d1 + d2;
+            //Console.WriteLine("D1 + D2: " + d3);
+
+            //d3 = d1 + 7800;
+            //Console.WriteLine("\nD1 + 7800 seconds: " + d3);
+
+            //d3 = 666 + d3;
+            //Console.WriteLine("\n666 + D3: " + d3);
+
+
+            //d3 = ++d1;
+            //Console.WriteLine("\n++D1: " + d3);
+
+            //d3 = --d2;
+            //Console.WriteLine("\n--D2: " + d3);
+
+            
+            //d1 = d1 - d2;
+            //Console.WriteLine("\nD1 - D2: " + d1);
+
+        
+            //if (d1 > d2)
+            //    Console.WriteLine("\nD1 is greater than D2");
+            //else
+            //    Console.WriteLine("\nD1 is not greater than D2");
+
+            //if (d1 <= d2)
+            //    Console.WriteLine("\nD1 is less than or equal to D2");
+            //else
+            //    Console.WriteLine("\nD1 is not less than or equal to D2");
+
+            //if (d1)
+            //    Console.WriteLine("\nD1 is not zero");
+            //else
+            //    Console.WriteLine("\nD1 is zero");
+
+            //DateTime dateTime = (DateTime) d1;
+            //Console.WriteLine($"\nD1 as datetime : {dateTime}");
 
         }
     }
