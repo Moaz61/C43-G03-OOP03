@@ -147,12 +147,7 @@ namespace Ass4OOP
             public int Hours {  get; set; }
             public int Minutes { get; set; }
             public int Seconds { get; set; }
-            public Duration (int hours, int minutes, int seconds)
-            {
-                Hours = hours;
-                Minutes = minutes;
-                Seconds = seconds;
-            }
+
             #endregion
 
             #region 2-Override All System. Object Members [To String(), Equals(),GetHashCode() ] 
@@ -174,11 +169,34 @@ namespace Ass4OOP
 
             public override int GetHashCode()
             {
-                return HashCode.Combine(Hours, Minutes, Seconds);
+                string s = string.Concat(Hours, Minutes, Seconds);
+                int ans = Convert.ToInt32(s);
+                return ans;
             }
             #endregion
 
             #region 3-Define All Required Constructors to Produce this output: 
+            public Duration(int hours, int minutes, int seconds)
+            {
+                Hours = hours;
+                Minutes = minutes;
+                Seconds = seconds;
+            }
+
+            public Duration(int seconds)
+            {
+                this.Hours = seconds / 3600;
+                seconds %= 3600;
+
+                this.Minutes = seconds / 60;
+                seconds %= 60;
+
+                this.Seconds = seconds;
+            }
+
+            #endregion
+
+            #region 4-Implement All required Operators overloading to enable this Code: 
 
             #endregion
         }
@@ -259,6 +277,12 @@ namespace Ass4OOP
             //Console.WriteLine("\nd1 hash code: " + d1.GetHashCode());
             //Console.WriteLine("d2 hash code: " + d2.GetHashCode());
             //Console.WriteLine("d3 hash code: " + d3.GetHashCode());
+
+            /*---------------------------------------------------------------------------------*/
+
+            //Duration d4 = new Duration(666);
+
+            //Console.WriteLine("Duration d4: " +d4);
 
             /*---------------------------------------------------------------------------------*/
 
